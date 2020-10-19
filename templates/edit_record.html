@@ -1,0 +1,97 @@
+<!-- it extends index page -->
+{% extends "index.html" %}
+
+<!-- retailer management form block started -->
+{% block edit_consumer_mgmt %}
+<section id="1" class="bg bg-lighta">
+    <div class="sec_title">
+    </div>
+                          
+   <!-- Content Section -->
+    
+          {% for q in consumer_list %}
+
+
+            <form class="form-horizontal col-xs-12 col-lg-12 col-md-12 col-sm-12 mt-2" method="POST" action="{{url_for('update_oneConsumer_Records')}}" name="wform" >
+             <fieldset  class="row sec1">
+
+                <legend class="ml-3">Consumer Data Management</legend>
+
+
+                 <div class="form-group col-lg-4 col-sm-12">
+                 <input type="text" class="form-control" id="id" placeholder="name" value="{{q['_id']}}" name="id" > 
+                  </div>
+                   
+                  <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <input type="Number" class="form-control mb-1" id="swo" placeholder="Swo No" name="swo" value="{{q['Swo']}}" > 
+                         
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <input type="Date" class="form-control mb-1" id="date1" placeholder="date" name="date1" value="{{q['Date']}}" > 
+                         
+                    </div>
+            
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <input type="text" class="form-control mb-1" id="fName" placeholder="First Name" name="fName" value="{{q['FirstName']}}" > 
+                        
+                    </div> 
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <input type="text" class="form-control mb-1" id="lastName" placeholder="Last name" name="lastName" value="{{q['LastName']}}"> 
+                    </div> 
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                         <input id="street" name="street" type="text" class="form-control mb-1" placeholder="Street Address" value="{{q['Address']}}">
+                
+                    </div>
+                     <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <input id="city" name="city" type="text" class="form-control mb-1" placeholder="City" value="{{q['City']}}">  
+                    </div> 
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <input id="state" name="state" type="text" class="form-control mb-1" placeholder="State" value="{{q['State']}}">   
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <input type="text" name="country" id="country" class="form-control mb-1" placeholder="Country" value="{{q['Country']}}">
+                    </div>
+                        
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <input id="zip" name="zip" type="text" class="form-control mb-1" placeholder="Zip" value="{{q['Zip']}}">
+                            
+                    </div> 
+                  </fieldset>
+
+                  <fieldset  class="row sec1">
+                <legend class="ml-3">Phone Numbers/Emails</legend>
+                    
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <input id="home" name="home" type="number" class="form-control mb-1"  placeholder="Home" value="{{q['Home']}}">
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <input id="mobile" name="mobile" type="number" class="form-control mb-1"  placeholder="Mobile1" value="{{q['Mobile1']}}">
+                          
+                        
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        
+                            <input id="cell" name="cell" type="number" class="form-control mb-1" placeholder="Mobile2" value="{{q['Mobile2']}}">
+                            
+                            </div>
+                            <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <input id="email" name="email" type="email" class="form-control mb-1" placeholder="Email" value="{{q['Email1']}}">
+                        
+                    </div>
+                  </fieldset>
+                            <div class="form-group col-lg-12 text-center ">
+                        <button type="Submit" class="btn btn-primary">Submit</button>
+                     </div>
+                            <!-- <button type="button" class="btn btn-lg btn-info">Submit</button> -->
+                         </div>
+                          
+        </form>
+
+
+
+
+
+
+   {% endfor %}
+
+   {% endblock %}

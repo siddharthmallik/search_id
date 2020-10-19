@@ -1,0 +1,211 @@
+<!-- it extends index page -->
+{% extends "index.html" %}
+
+<!-- retailer management form block started -->
+{% block consumer_mgmt %}
+    <section id="top" class="container-fluid mt-8 pt-4">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <a href="#section1" class="btn btn-dark" data-toggle="collapse">Create <i class="fa fa-plus"></i></a>
+              </div>  
+    
+
+<form class="form-horizontal col-lg-3 col-md-3 col-sm-12 col-xs-12" method="POST" action="{{url_for('searchInstallerById')}}">
+  <div class="row">
+<div class="form-group col-md-8 col-lg-8">
+<input type="text" class="form-control" id="searchbyid" placeholder="id" name="searchbyid">
+</div>
+<div class="form-group col-lg-4 col-md-4 col-sm-12">
+<button type="submit" class="btn btn-dark">Search</button>
+</div>
+</div>
+</form>
+
+
+<form class="form-horizontal col-lg-3 col-md-3 col-sm-12 col-xs-12" method="POST" action="{{url_for('searchInstallerByswo')}}">
+  <div class="row">
+<div class="form-group col-md-8 col-lg-8">
+<input type="text" class="form-control" id="searchbyswo" placeholder="swo" name="searchbyswo">
+</div>
+<div class="form-group col-lg-4 col-md-4 col-sm-12">
+<button type="submit" class="btn btn-dark">Search</button>
+</div>
+</div>
+</form>
+
+
+<form class="form-horizontal col-lg-3 col-md-3 col-sm-12 col-xs-12" method="POST" action="{{url_for('searchInstallerBycity')}}">
+   <div class="row">
+<div class="form-group col-md-8 col-lg-8">
+<input type="text" class="form-control" id="searchbycity" placeholder="city" name="searchbycity">
+</div>
+<div class="form-group col-lg-4 col-md-4 col-sm-12">
+<button type="submit" class="btn btn-dark">Search</button>
+</div>
+</form>
+
+</div>
+    </section>
+
+   <!-- Content Section -->
+    <section id="section1" class="collapse container-fluid mt-4">
+        <div class="bg bg-lighta">
+            <div class="sec_title">
+                <h6 >Consumer Data management</h6>
+            </div>
+
+
+            <form class="form-horizontal col-xs-12 col-lg-12 col-md-12 col-sm-12 mt-4" method="POST" action="{{url_for('update_consumerRecords')}}" name="wform" >
+             <fieldset  class="row sec1">
+                <!-- <legend class="ml-3">Customer Information</legend> -->
+                 
+
+                  <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="lastName" class="col-4 col-form-label-sm text-right">Enter Swo #:</label>
+                        <input type="Number" class="form-control mb-1" id="swo" placeholder="Swo No" name="swo" > 
+                         
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="lastName" class="col-4 col-form-label-sm text-right">Date:</label>
+                        <input type="Date" class="form-control mb-1" id="date1" placeholder="date" name="date1" > 
+                         
+                    </div>
+            </fieldset>
+
+            <fieldset  class="row sec1">
+                <legend class="ml-3">Customer Contact Info</legend>
+                    
+                    
+                    
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="pName" class="col-lg-4  text-right">First Name:</label>
+                        <input type="text" class="form-control mb-1" id="fName" placeholder="First Name" name="fName" > 
+                        
+                    </div> 
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="lastName" class="col-lg-4 lastName text-right">Last Name:</label> 
+                        <input type="text" class="form-control mb-1" id="lastName" placeholder="Last name" name="lastName" > 
+                    </div> 
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="address" class="col-4  text-right">Street Address:</label> 
+                         <input id="street" name="street" type="text" class="form-control mb-1" placeholder="Street Address" >
+                     
+                           
+                          
+                       
+                    </div>
+                     <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="city" class="col-4 col-form-label-sm text-right">City:</label> 
+                        <input id="city" name="city" type="text" class="form-control mb-1" placeholder="City">  
+                    </div> 
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                            <label for="state" class="">State </label>
+                            <input id="state" name="state" type="text" class="form-control mb-1" placeholder="State">   
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                             <label for="country" class="">Country </label>
+                            <input type="text" name="country" id="country" class="form-control mb-1" placeholder="Country">
+                    </div>
+                        
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="firstName" class="col-4 col-form-label-sm text-right">Zip:</label> 
+                        
+                                <input id="zip" name="zip" type="text" class="form-control mb-1" placeholder="Zip">
+                            
+                    </div> 
+                  </fieldset>
+                  <fieldset  class="row sec1">
+                <legend class="ml-3">Phone Numbers/Emails</legend>
+                    
+                    
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="office" class="col-4 col-form-label-sm text-right">Home:</label> 
+                       
+                          
+                            <input id="home" name="home" type="number" class="form-control mb-1"  placeholder="Home">
+                         
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="office" class="col-4 col-form-label-sm text-right">Mobile:</label> 
+                        
+                         
+                            <input id="mobile" name="mobile" type="number" class="form-control mb-1"  placeholder="Mobile1">
+                          
+                        
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="cell" class="col-4 col-form-label-sm text-right">Mobile:</label> 
+                        
+                          
+                            <input id="cell" name="cell" type="number" class="form-control mb-1" placeholder="Mobile2">
+                            
+                            </div>
+                            <div class="form-group  col-lg-4 col-md-6 col-sm-12">
+                        <label for="emailAddress" class="col-4 col-form-label-sm text-right">Email Address:</label> 
+                         
+                            <input id="email" name="email" type="email" class="form-control mb-1" placeholder="Email">
+                        
+                    </div>
+                  </fieldset>
+                            <div class="form-group col-lg-12 text-center ">
+                        <button type="Submit" class="btn btn-primary">Submit</button>
+                     </div>
+                            <!-- <button type="button" class="btn btn-lg btn-info">Submit</button> -->
+                         </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+  
+
+
+   <!-- Dsiplay Data in the form of CARD -->
+      <div class="row pl-3 pr-3">
+      <div class="col-lg-12 text-center m-4">
+         <h2>Consumer Data INFO</h2>
+      </div>
+      
+      {% for q in consumerlist %}
+      
+      <div class="col-sm-12 col-lg-4 col-md-6 mb-3">
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title bg bg-dark text-light p-1">swo : {{q["Swo"]}}</h5>
+               <table class="mb-4">
+                  <tr><td>ID : </td><td>{{q["_id"]}}</td></tr> 
+                  <tr><td>Date : </td><td>{{q["Date"]}}</td></tr>
+                  <tr><td>FirstName : </td><td>{{q["FirstName"]}}</td></tr>
+                  <tr><td>LastName : </td><td>{{q["LastName"]}}</td></tr>
+                  <tr><td>Address : </td><td>{{q["Address"]}}</td></tr>
+
+                  <tr><td>City : </td><td>{{q["City"]}}</td></tr>
+                  <tr><td>State : </td><td>{{q["State"]}}</td></tr>
+                  <tr><td>Country : </td><td>{{q["Country"]}}</td></tr>
+
+                  <tr><td>Zip : </td><td>{{q["Zip"]}}</td></tr>
+                  <tr><td>Home : </td><td>{{q["Home"]}}</td></tr>
+                  <tr><td>Mobile1 : </td><td>{{q["Mobile1"]}}</td></tr>
+                  <tr><td>Mobile2 : </td><td>{{q["Mobile2"]}}</td></tr>
+                  <tr><td>Email1 : </td><td>{{q["Email1"]}}</td></tr>
+               </table>
+               <div class="row">
+                  <form method="POST" action="edit/{{q['_id']}}" class="col-lg-3 col-md-3">
+                     <div class="form-group ">
+                        <button type="submit" class="btn btsn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button>
+                     </div>
+                  </form>
+                  
+               </div>
+              
+            </div>
+         </div>
+      </div>
+      
+      {% endfor %}
+      </div>
+  
+
+
+{% endblock %}
